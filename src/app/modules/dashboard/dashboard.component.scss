@@ -1,0 +1,18 @@
+.main-container {
+  width: 60%;
+  margin: 30px auto;
+  .search-box {
+    .search-box-input-field {
+      width: 100%;
+    }
+    .search-box-actions {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.dashboard-router {
+  margin-top: 50px;
+  width: 60%;
+  margin: 30px auto;
+}

@@ -1,0 +1,32 @@
+<div class="main-container">
+  <mat-card class="search-box">
+    <mat-card-content>
+      <mat-form-field class="search-box-input-field">
+        <mat-label>Search for a Github user</mat-label>
+        <input matInput type="text" [formControl]="username" />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions class="search-box-actions">
+      <button mat-raised-button color="primary" (click)="handleSubmit('user')">
+        Repos
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="handleSubmit('organizations')"
+      >
+        Organizations
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="dashboard-router">
+  <mat-spinner
+    *ngIf="this.isLoading"
+    mode="indeterminate"
+    color="accent"
+  ></mat-spinner>
+  <router-outlet></router-outlet>
+</div>
