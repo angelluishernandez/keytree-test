@@ -20,8 +20,8 @@
     </div>
     <ng-template #goToRepos>
       <div class="user-repos-link">
-        <button mat-raised-button color="warn" (click)="navigateToUserRepos()">
-          Check user repos
+        <button mat-raised-button color="warn" (click)="navigateTo('user-organizations')">
+          Check user organizations
         </button>
       </div>
     </ng-template>
@@ -40,7 +40,7 @@
     </ng-container>
 
     <div *ngIf="this.configuration.isUserData" class="user-repos-link">
-      <a mat-raised-button color="warn" (click)="navigateToUserRepos()"
+      <a mat-raised-button color="warn" (click)="navigateTo('user-repos')"
         >Check user repos</a
       >
     </div>

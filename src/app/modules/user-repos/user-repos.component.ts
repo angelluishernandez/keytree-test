@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExpandableItems } from 'src/app/interfaces/expandable-config';
@@ -41,6 +40,7 @@ export class UserReposComponent implements OnInit {
         content: {
           urlLink: repo.html_url,
           createdAt: repo.created_at,
+          isUserData: false,
           links: [
             {
               label: 'Download repo',

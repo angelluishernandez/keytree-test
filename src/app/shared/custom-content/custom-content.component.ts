@@ -10,17 +10,15 @@ import { AbstractModuleComponent } from '../abstract/abstract.module';
 export class CustomContentComponent
   extends AbstractModuleComponent
   implements OnInit {
-  userRoute = '';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     super();
   }
 
   ngOnInit(): void {
-    this.userRoute = `/user-repos/${this.activatedRoute.snapshot.params.username}`;
   }
 
-  navigateToUserRepos(): void {
-    this.router.navigate([this.userRoute]);
+  navigateTo(url: string): void {
+    this.router.navigate([url, this.activatedRoute.snapshot.params.username]);
   }
 }
