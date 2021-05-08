@@ -1,1 +1,27 @@
-<p>user-orgs works!</p>
+<div class="orgs-container">
+  <mat-card>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="User data">
+          <div class="tab-content">
+            <h1 class="user-name">
+              Username: {{ this.expandableItemsUser?.name }}
+            </h1>
+            <app-custom-content
+              [configuration]="this.expandableItemsUser?.content"
+            ></app-custom-content>
+          </div>
+        </mat-tab>
+        <mat-tab label="User organizations">
+
+          <app-custom-expandable
+            [configuration]="{
+              expandableDescription: this.expandableDescriptionOrgs,
+              expandableItems: this.expandableItemsOrgs
+            }"
+          ></app-custom-expandable>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>

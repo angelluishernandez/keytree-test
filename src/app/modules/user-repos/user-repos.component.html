@@ -1,31 +1,12 @@
 <div class="repos-container">
   <mat-card>
     <mat-card-content>
-      <mat-accordion>
-        <mat-expansion-panel
-          class="repo-item"
-          *ngFor="let repo of this.userRepos"
-
-        >
-          <mat-expansion-panel-header expandedHeight="75px" collapsedHeight="75px">
-            <mat-panel-title >
-              {{ repo.name }}
-            </mat-panel-title>
-            <mat-panel-description
-              class="panel-description"
-            >{{ repo.description }}
-              <mat-icon
-                matBadge="{{ repo.stargazers_count }}"
-                matBadgeColor="warn"
-                matBadgeSize="small"
-                >star</mat-icon
-              >
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <p>content</p>
-        </mat-expansion-panel>
-        <div></div>
-      </mat-accordion>
+      <app-custom-expandable
+        [configuration]="{
+          expandableDescription: this.expandableDescription,
+          expandableItems: this.expandableItems
+        }"
+      ></app-custom-expandable>
     </mat-card-content>
   </mat-card>
 </div>

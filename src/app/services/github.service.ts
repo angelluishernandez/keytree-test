@@ -20,7 +20,7 @@ export class GithubService {
     }
   }
 
-  async getUserData(username: string): Promise<any> {
+  async getUserOrgs(username: string): Promise<any> {
     try {
       const userDataUrl = `${GITHUB_BASE_URL}/users/${username}`;
       const userOrgsUrl = `${GITHUB_BASE_URL}/users/${username}/orgs`;

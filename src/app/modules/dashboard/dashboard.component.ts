@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
    */
 
   ngOnInit(): void {
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 
   /**

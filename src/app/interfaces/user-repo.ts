@@ -8,4 +8,5 @@ export interface UserRepo {
   html_url: string;
   stargazers_count: number;
   name: string;
+  git_url: string;
 }

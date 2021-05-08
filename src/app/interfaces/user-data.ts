@@ -7,7 +7,7 @@ export interface UserData {
   email: string;
   followers: number;
   following: number;
-  hireable: boolean | null;
+  hireable: boolean;
   login: string;
   organizations_url: string;
   public_repos: number;
@@ -16,5 +16,6 @@ export interface UserData {
   twitter_username: string;
   type: string;
   updated_at: string;
-  url: string;
+  html_url: string;
+
 }

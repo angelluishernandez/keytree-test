@@ -1,7 +1,29 @@
-<mat-expansion-panel-header>
-  <mat-panel-title> {{ this.configuration.name }}</mat-panel-title>
-  <mat-panel-description>
-    {{ this.configuration.description }}
-  </mat-panel-description>
-</mat-expansion-panel-header>
-<p>This is the primary content of the panel.</p>
+<div class="expandable-description">
+  <h1>{{ this.expandableDescription }}</h1>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel
+    class="repo-item"
+    *ngFor="let item of this.expandableItems"
+  >
+    <mat-expansion-panel-header expandedHeight="75px" collapsedHeight="75px">
+      <mat-panel-title>
+        {{ item.name }}
+      </mat-panel-title>
+      <mat-panel-description class="panel-description"
+        >{{ item.description }}
+        <mat-icon
+          matBadge="{{ item.counter?.number }}"
+          matBadgeColor="warn"
+          matBadgeSize="small"
+          >{{ item.counter?.icon }}</mat-icon
+        >
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-custom-content
+      [configuration]="this.item.content"
+    ></app-custom-content>
+  </mat-expansion-panel>
+</mat-accordion>

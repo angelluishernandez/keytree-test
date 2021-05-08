@@ -6,4 +6,5 @@ export interface UserOrganition {
   public_members_url: string;
   repos_url: string;
   url: string;
+  created_at: string;
 }
