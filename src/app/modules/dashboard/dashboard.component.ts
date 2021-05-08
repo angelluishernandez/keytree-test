@@ -28,27 +28,39 @@ export class DashboardComponent implements OnInit {
      * @see UserReposResolver
      */
 
-    this.router.events.subscribe((event: Event) => {
-      switch (true) {
-        case event instanceof NavigationStart:
-          {
-            this.isLoading = true;
-          }
+    this.router.events.subscribe({
+      next: (event: Event) => {
+        switch (true) {
+          case event instanceof NavigationStart:
+            {
+              this.isLoading = true;
+            }
 
-          break;
-        case event instanceof NavigationEnd:
-        case event instanceof NavigationCancel:
-        case event instanceof NavigationError: {
-          this.isLoading = false;
-          break;
+            break;
+          case event instanceof NavigationEnd:
+          case event instanceof NavigationCancel:
+          case event instanceof NavigationError: {
+            this.isLoading = false;
+            break;
+          }
+          default:
+            break;
         }
-        default:
-          break;
-      }
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('Request completed'),
     });
   }
 
-  ngOnInit(): void {}
+  /**
+   * Everytime we reload the page the app will navigate to
+   * its root in order to clear up the search box and avoid making
+   * unnecessary requests to the server
+   */
+
+  ngOnInit(): void {
+    this.router.navigate(['/']);
+  }
 
   /**
    *
