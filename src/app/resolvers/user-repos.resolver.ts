@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { ErrorService } from '../services/error.service';
+import { BehaviorSubject } from 'rxjs';
+import { UserRepo } from '../interfaces/user-repo';
 import { GithubService } from '../services/github.service';
+import { StoreService } from '../services/store.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,14 +15,28 @@ import { GithubService } from '../services/github.service';
 export class UserReposResolver implements Resolve<any> {
   constructor(
     private githubService: GithubService,
+    private storeService: StoreService,
     private router: Router
   ) {}
+
+
 
   async resolve(route: ActivatedRouteSnapshot): Promise<any | void> {
     try {
       const username: string = route.params.username;
-      const userRepos = await this.githubService.getRepos(username);
-      return userRepos;
+
+      /**
+       * If there's nothing stored in call the service
+       */
+
+
+      if(!this.storeService.getUserRepos()){
+        const userRepos = await this.githubService.getRepos(username);
+        this.storeService.userRepos.next(userRepos)
+      }
+
+
+      return this.storeService.getUserRepos();
     } catch (error) {
       this.router.navigate(['/']);
     }

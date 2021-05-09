@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable, throwError } from 'rxjs';
+import { UserRepo } from '../interfaces/user-repo';
+import { StoreService } from './store.service';
 
 export const GITHUB_BASE_URL = 'https://api.github.com';
 
@@ -8,6 +10,9 @@ export const GITHUB_BASE_URL = 'https://api.github.com';
   providedIn: 'root',
 })
 export class GithubService {
+
+
+
   constructor(private httpClient: HttpClient) {}
 
   async getRepos(username: string): Promise<any> {
