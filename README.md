@@ -1,27 +1,30 @@
-# :key:
+# :key::evergreen_tree: ******************* :key::evergreen_tree:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+This project has been done in Angular version 11.2.11.
 
-## Development server
+To run it locally in dev mode download it and run `ng serve` in the console. 
+To run a production version run `ng build --prod` 
+In either case don't forget to install all the necessary stuff by running `npm install`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You can also check a live version of this app in this [link](https://cranky-ramanujan-1b0efb.netlify.app)
 
-## Code scaffolding
+# What will you find here? 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I have completed all the tasks specified in here => [Keytree's github repo] (https://github.com/alanrubin/javascript-interview-project)
 
-## Build
+I haven't finished the tests but I've manage to cover about 65% of the code. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# What tools have I used? 
 
-## Running unit tests
+I have used the 11.2.11 version of Angular as I already mentioned, Angular Material for styling, Prettier and TSLint extensions for formatting and linting respectively, JSDocs for comments, and Netlify to deploy. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# How does it work? 
 
-## Running end-to-end tests
+You just have to enter a valid Github username in the input and it will show its repos. 
+If you provide an invalid user it will throw an error which message will be shown in a Material dialog. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# What about the code? 
 
-## Further help
+I have used resolvers to make Api calls, since it made sense to me to make Http calls when redirecting to a certain page. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Loading when redirecting is handled by with router events. 
