@@ -23,21 +23,30 @@ export class UserOrgsResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot
   ): Promise<{ userData: UserData; userOrgs: Array<UserOrganization> } | void> {
     try {
+      const username: string = route.params.username;
+      /**
+       * If username is not equal as the stored one delete all
+       */
+
+      if (this.storeService.getUsername() !== username) {
+        this.storeService.username.next(username);
+        this.storeService.userRepos.next([]);
+        this.storeService.userData.next({});
+        this.storeService.userOrgs.next([]);
+      }
 
       /**
        * If there's no userOrgs and userData in the store call the service
        */
-      if(!this.storeService.getUserOrgs() && !this.storeService.getUserData()){
-        const username: string = route.params.username;
-        const {userData, userOrgs} = await this.githubService.getUserOrgs(username);
+      if ( !this.storeService.getUserOrgs() && !this.storeService.getUserData() ) {
+        const { userData, userOrgs } = await this.githubService.getUserOrgs( username );
         this.storeService.userData.next(userData);
         this.storeService.userOrgs.next(userOrgs);
       }
       return {
         userData: this.storeService.getUserData(),
-        userOrgs: this.storeService.getUserOrgs()
-      }
-
+        userOrgs: this.storeService.getUserOrgs(),
+      };
     } catch (error) {
       this.router.navigate(['/']);
     }

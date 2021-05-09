@@ -19,22 +19,29 @@ export class UserReposResolver implements Resolve<any> {
     private router: Router
   ) {}
 
-
-
   async resolve(route: ActivatedRouteSnapshot): Promise<any | void> {
     try {
       const username: string = route.params.username;
 
       /**
+       * If username is not equal as the stored one delete all
+       */
+
+      if (this.storeService.getUsername() !== username) {
+        this.storeService.username.next(username);
+        this.storeService.userRepos.next(null);
+        this.storeService.userData.next(null);
+        this.storeService.userOrgs.next(null);
+      }
+
+      /**
        * If there's nothing stored in call the service
        */
 
-
-      if(!this.storeService.getUserRepos()){
+      if (!this.storeService.getUserRepos()) {
         const userRepos = await this.githubService.getRepos(username);
-        this.storeService.userRepos.next(userRepos)
+        this.storeService.userRepos.next(userRepos);
       }
-
 
       return this.storeService.getUserRepos();
     } catch (error) {

@@ -5,26 +5,27 @@ import { UserOrganization } from '../interfaces/user-organition';
 import { UserRepo } from '../interfaces/user-repo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StoreService {
+  username: BehaviorSubject<string> = new BehaviorSubject<any>(null);
+  userRepos: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  userOrgs: BehaviorSubject<any> = new BehaviorSubject<any>( null );
+  userData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  userRepos: BehaviorSubject<Array<UserRepo>> = new BehaviorSubject<any>(null);
-  userOrgs: BehaviorSubject<Array<UserOrganization>> = new BehaviorSubject<any>(null);
-  userData: BehaviorSubject<UserData> = new BehaviorSubject<any>(null);
+  getUsername(): string {
+    return this.username.getValue();
+  }
 
-  constructor() { }
-
-  getUserRepos(): Array<UserRepo>{
+  getUserRepos(): Array<UserRepo> {
     return this.userRepos.getValue();
   }
 
-  getUserOrgs(): Array<UserOrganization>{
+  getUserOrgs(): Array<UserOrganization> {
     return this.userOrgs.getValue();
   }
 
-  getUserData(): UserData{
+  getUserData(): UserData {
     return this.userData.getValue();
   }
-
 }
