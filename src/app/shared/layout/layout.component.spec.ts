@@ -22,4 +22,10 @@ describe('LayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it(`should have a mat-toolbar'`, () => {
+    const navbar = fixture.nativeElement.querySelector('mat-toolbar')
+    expect(navbar).toBeTruthy()
+  });
 });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { UserData } from '../interfaces/user-data';
-import { UserOrganition } from '../interfaces/user-organition';
+import { UserOrganization } from '../interfaces/user-organition';
 import { ErrorService } from '../services/error.service';
 import { GithubService } from '../services/github.service';
 @Injectable({
@@ -21,7 +21,7 @@ export class UserOrgsResolver implements Resolve<any> {
 
   async resolve(
     route: ActivatedRouteSnapshot
-  ): Promise<{ userData: UserData; userOrgs: Array<UserOrganition> } | void> {
+  ): Promise<{ userData: UserData; userOrgs: Array<UserOrganization> } | void> {
     try {
       const username: string = route.params.username;
       const results = await this.githubService.getUserOrgs(username);

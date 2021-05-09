@@ -7,6 +7,7 @@ import {
 
 import { ErrorContentComponent } from './error-content.component';
 
+
 describe('ErrorContentComponent', () => {
   let component: ErrorContentComponent;
   let fixture: ComponentFixture<ErrorContentComponent>;

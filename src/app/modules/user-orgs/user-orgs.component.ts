@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExpandableItems } from 'src/app/interfaces/expandable-config';
 import { UserData } from 'src/app/interfaces/user-data';
-import { UserOrganition } from 'src/app/interfaces/user-organition';
+import { UserOrganization } from 'src/app/interfaces/user-organition';
 
 @Component({
   selector: 'app-user-orgs',
@@ -11,7 +11,7 @@ import { UserOrganition } from 'src/app/interfaces/user-organition';
 })
 export class UserOrgsComponent implements OnInit {
   userData: UserData;
-  userOrgs: Array<UserOrganition> = [];
+  userOrgs: Array<UserOrganization> = [];
   expandableItemsOrgs: Array<ExpandableItems> = [];
   expandableItemsUser: ExpandableItems | undefined;
   expandableDescriptionOrgs = 'User organizations';
@@ -20,9 +20,8 @@ export class UserOrgsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userData = this.activatedRoute?.snapshot?.data?.payload?.userData;
-    this.userOrgs = this.activatedRoute?.snapshot?.data?.payload?.userOrgs;
-
+    this.userData = this.activatedRoute.snapshot.data.payload.userData;
+    this.userOrgs = this.activatedRoute.snapshot.data.payload.userOrgs;
     this.formatOrgsToConfig(this.userOrgs);
     this.formatUserDataToConfig();
   }
@@ -33,7 +32,7 @@ export class UserOrgsComponent implements OnInit {
    *
    */
 
-  formatOrgsToConfig(orgs: Array<UserOrganition>): void {
+  formatOrgsToConfig(orgs: Array<UserOrganization>): void {
     orgs?.map((org) => {
       const newOrgConfig: ExpandableItems = {
         name: org.login,
@@ -59,6 +58,7 @@ export class UserOrgsComponent implements OnInit {
       },
       name: this.userData?.login,
       content: {
+        name: this.userData?.login,
         description: this.userData?.bio,
         urlLink: this.userData?.html_url,
         image: this.userData?.avatar_url,

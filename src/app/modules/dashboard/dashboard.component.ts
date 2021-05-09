@@ -18,16 +18,28 @@ export class DashboardComponent implements OnInit {
   username: FormControl = new FormControl('', Validators.required);
   isLoading = false;
 
-  constructor(private router: Router) {
-    /**
-     * A suscription to detect when the application is changing routes.
-     * The resolver will take some time to complete and then to redirect to
-     * its destiny, so we use this time to display a spinner until the resolve
-     * is finished
-     *
-     * @see UserReposResolver
-     */
+  constructor(private router: Router) {}
 
+  /**
+   * Everytime we reload the page the app will navigate to
+   * its root in order to clear up the search box and avoid making
+   * unnecessary requests to the server
+   */
+
+  ngOnInit(): void {
+    this.router.navigate(['/']);
+    this.subscribeToRouterEvents();
+  }
+
+  /**
+   * A suscription to detect when the application is changing routes.
+   * The resolver will take some time to complete and then to redirect to
+   * its destiny, so we use this time to display a spinner until the resolve
+   * is finished
+   *
+   * @see UserReposResolver
+   */
+  subscribeToRouterEvents(): void {
     // tslint:disable-next-line: deprecation
     this.router.events.subscribe({
       next: (event: Event) => {
@@ -51,16 +63,6 @@ export class DashboardComponent implements OnInit {
       error: (error) => console.error(error),
       complete: () => console.log('Request completed'),
     });
-  }
-
-  /**
-   * Everytime we reload the page the app will navigate to
-   * its root in order to clear up the search box and avoid making
-   * unnecessary requests to the server
-   */
-
-  ngOnInit(): void {
-    this.router.navigate(['/']);
   }
 
   /**

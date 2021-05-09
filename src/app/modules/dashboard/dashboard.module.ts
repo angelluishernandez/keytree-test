@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorHandlerModule } from 'src/app/shared/error-handler/error-handler.module';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,

@@ -13,7 +13,6 @@ import { GithubService } from '../services/github.service';
 export class UserReposResolver implements Resolve<any> {
   constructor(
     private githubService: GithubService,
-    private errorService: ErrorService,
     private router: Router
   ) {}
 

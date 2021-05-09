@@ -9,11 +9,12 @@
     />
     <div class="text-info" *ngIf="this.configuration?.isRepos; else goToRepos">
       <div class="user-repos-link">
-        <a
+        <button
           mat-raised-button
           color="warn"
           (click)="navigateTo('user-organizations')"
-          >Check user organizations</a
+          class="content-button"
+          >Check user organizations</button
         >
       </div>
     </div>
@@ -29,6 +30,7 @@
           mat-raised-button
           color="warn"
           (click)="navigateTo('user-repos')"
+          class="content-button"
         >
           Check user repos
         </button>
@@ -39,6 +41,7 @@
   <div class="expandable-content-links">
     <ng-container *ngFor="let link of this.configuration?.links">
       <a
+        class="content-links"
         mat-raised-button
         color="primary"
         *ngIf="link.url"

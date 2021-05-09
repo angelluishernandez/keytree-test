@@ -50,7 +50,7 @@ export class UserReposComponent implements OnInit {
               label: 'Go to repo',
               url: repo.html_url,
             },
-            { label: 'Git link', url: repo.git_url },
+
           ],
         },
       };

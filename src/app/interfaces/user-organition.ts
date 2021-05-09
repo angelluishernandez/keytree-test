@@ -1,4 +1,4 @@
-export interface UserOrganition {
+export interface UserOrganization {
   avatar_url: string;
   description: string;
   id: number;

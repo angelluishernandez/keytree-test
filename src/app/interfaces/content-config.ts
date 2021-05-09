@@ -1,4 +1,5 @@
 export interface ContentConfig {
+  name?: string;
   description?: string;
   image?: string;
   urlLink: string;
