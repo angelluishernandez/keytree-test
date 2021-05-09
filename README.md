@@ -1,4 +1,3 @@
-# :key::evergreen_tree: ******************* :key::evergreen_tree:
 # :key::evergreen_tree: ***KEYTREE  TEST*** :key::evergreen_tree:
 This project has been done in Angular version 11.2.11.
 
