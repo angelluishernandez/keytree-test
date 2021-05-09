@@ -7,21 +7,30 @@
       alt="avatar"
       class="avatar"
     />
-    <div
-      class="text-info"
-      *ngIf="this.configuration.isUserData; else goToRepos"
-    >
-      <p>
-        <strong>{{ this.configuration.name }}</strong>
-      </p>
-      <ng-template *ngIf="this.configuration.description">
-        <p><strong></strong>{{ this.configuration.description }}</p>
-      </ng-template>
+    <div class="text-info" *ngIf="this.configuration.isRepos; else goToRepos">
+      <div class="user-repos-link">
+        <a
+          mat-raised-button
+          color="warn"
+          (click)="navigateTo('user-organizations')"
+          >Check user organizations</a
+        >
+      </div>
     </div>
     <ng-template #goToRepos>
       <div class="user-repos-link">
-        <button mat-raised-button color="warn" (click)="navigateTo('user-organizations')">
-          Check user organizations
+        <p>
+          <strong>{{ this.configuration.name }}</strong>
+        </p>
+        <ng-template *ngIf="this.configuration.description">
+          <p><strong></strong>{{ this.configuration.description }}</p>
+        </ng-template>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="navigateTo('user-repos')"
+        >
+          Check user repos
         </button>
       </div>
     </ng-template>
@@ -38,11 +47,5 @@
         >{{ link.label }}</a
       >
     </ng-container>
-
-    <div *ngIf="this.configuration.isUserData" class="user-repos-link">
-      <a mat-raised-button color="warn" (click)="navigateTo('user-repos')"
-        >Check user repos</a
-      >
-    </div>
   </div>
 </div>

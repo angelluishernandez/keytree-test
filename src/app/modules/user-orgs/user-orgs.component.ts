@@ -59,7 +59,6 @@ export class UserOrgsComponent implements OnInit {
       },
       name: this.userData?.login,
       content: {
-        isUserData: true,
         description: this.userData?.bio,
         urlLink: this.userData?.html_url,
         image: this.userData?.avatar_url,

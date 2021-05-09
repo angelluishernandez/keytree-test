@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable, throwError } from 'rxjs';
 
 export const GITHUB_BASE_URL = 'https://api.github.com';
 
@@ -16,7 +16,8 @@ export class GithubService {
       const response = await this.httpClient.get(url).toPromise();
       return response;
     } catch (error) {
-      // Handle error service
+      console.error(error);
+      throw throwError(error);
     }
   }
 
@@ -33,7 +34,8 @@ export class GithubService {
       };
       return results;
     } catch (error) {
-      // Handle error service
+      console.error(error);
+      throw throwError(error);
     }
   }
 }

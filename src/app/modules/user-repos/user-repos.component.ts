@@ -19,7 +19,6 @@ export class UserReposComponent implements OnInit {
   ngOnInit(): void {
     this.userRepos = this.activatedRoute.snapshot.data.userRepos;
     this.formatUserReposToConfig(this.userRepos);
-    console.log(this.userRepos);
   }
 
   /**
@@ -40,7 +39,7 @@ export class UserReposComponent implements OnInit {
         content: {
           urlLink: repo.html_url,
           createdAt: repo.created_at,
-          isUserData: false,
+          isRepos: true,
           links: [
             {
               label: 'Download repo',

@@ -11,5 +11,5 @@ export interface ContentConfig {
     isEmail?: boolean;
   }>;
   hireable?: boolean;
-  isUserData?: boolean;
+  isRepos?: boolean;
 }

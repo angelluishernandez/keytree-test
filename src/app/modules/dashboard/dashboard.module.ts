@@ -8,7 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from 'src/app/shared/layout/layout.module';
 import { RouterModule, Routes } from '@angular/router';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ErrorHandlerModule } from 'src/app/shared/error-handler/error-handler.module';
 
 const routes: Routes = [
   {
@@ -31,8 +32,10 @@ const routes: Routes = [
     ],
   },
   {
-    path: '**', redirectTo: '/', pathMatch: 'full'
-  }
+    path: '**',
+    redirectTo: '/',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
@@ -42,6 +45,7 @@ const routes: Routes = [
     FormsModule,
     LayoutModule,
     ReactiveFormsModule,
+    ErrorHandlerModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

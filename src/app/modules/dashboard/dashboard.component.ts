@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import {
   Event,
   NavigationCancel,
@@ -15,7 +15,7 @@ import {
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  username: FormControl = new FormControl('');
+  username: FormControl = new FormControl('', Validators.required);
   isLoading = false;
 
   constructor(private router: Router) {
@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
      * @see UserReposResolver
      */
 
+    // tslint:disable-next-line: deprecation
     this.router.events.subscribe({
       next: (event: Event) => {
         switch (true) {
@@ -73,6 +74,10 @@ export class DashboardComponent implements OnInit {
    */
 
   handleSubmit(optionChosen: string): void {
+    if (this.username.invalid) {
+      console.log('No username was provided');
+      return;
+    }
     switch (optionChosen) {
       case 'user':
         this.router.navigate(['/user-repos', this.username.value]);
