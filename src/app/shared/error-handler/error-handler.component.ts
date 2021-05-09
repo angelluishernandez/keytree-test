@@ -18,10 +18,8 @@ export class ErrorHandlerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
-    this.errorService.error.subscribe((error) => {
+    this.errorService.errorSubs.subscribe((error) => {
       if (error) {
-        console.log("****")
-        console.log(error)
         this.openDialog(error);
       }
     });
@@ -36,12 +34,12 @@ export class ErrorHandlerComponent implements OnInit, OnDestroy {
       width: '400px',
       data: {
         status: error.status,
-        mensaje: error.message,
+        message: error.message,
       },
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      this.errorService.error.next(null);
+      this.errorService.errorSubs.next(null);
     });
   }
 
@@ -52,7 +50,7 @@ export class ErrorHandlerComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.error) {
       this.errorSubscription.unsubscribe();
-      this.errorService.error.next(null);
+      this.errorService.errorSubs.next(null);
     }
 
     // Poner en el onClose del modal

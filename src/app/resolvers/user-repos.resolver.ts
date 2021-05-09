@@ -23,7 +23,6 @@ export class UserReposResolver implements Resolve<any> {
       const userRepos = await this.githubService.getRepos(username);
       return userRepos;
     } catch (error) {
-      this.errorService.handleHttpError(error);
       this.router.navigate(['/']);
     }
   }

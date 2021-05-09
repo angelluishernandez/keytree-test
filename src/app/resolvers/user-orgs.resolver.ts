@@ -27,7 +27,6 @@ export class UserOrgsResolver implements Resolve<any> {
       const results = await this.githubService.getUserOrgs(username);
       return results;
     } catch (error) {
-      this.errorService.handleHttpError(error);
       this.router.navigate(['/']);
     }
   }
