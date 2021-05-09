@@ -1,12 +1,12 @@
 # :key::evergreen_tree: ******************* :key::evergreen_tree:
-
+# :key::evergreen_tree: ***KEYTREE  TEST*** :key::evergreen_tree:
 This project has been done in Angular version 11.2.11.
 
 To run it locally in dev mode download it and run `ng serve` in the console. 
 To run a production version run `ng build --prod` 
 In either case don't forget to install all the necessary stuff by running `npm install`
 
-You can also check a live version of this app in this [link](https://cranky-ramanujan-1b0efb.netlify.app)
+You can also check a live version of this app in this [link](https://focused-austin-18b174.netlify.app)
 
 # What will you find here? 
 
@@ -26,5 +26,5 @@ If you provide an invalid user it will throw an error which message will be show
 # What about the code? 
 
 I have used resolvers to make Api calls, since it made sense to me to make Http calls when redirecting to a certain page. 
-
+I have also created a store to avoid unnecessary calls to the Api and allow for faster navigation
 Loading when redirecting is handled by with router events. 
