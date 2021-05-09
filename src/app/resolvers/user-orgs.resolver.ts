@@ -48,6 +48,7 @@ export class UserOrgsResolver implements Resolve<any> {
         userOrgs: this.storeService.getUserOrgs(),
       };
     } catch (error) {
+      console.log("Hola")
       this.router.navigate(['/']);
     }
   }
