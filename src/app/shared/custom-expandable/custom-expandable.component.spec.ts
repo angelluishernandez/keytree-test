@@ -20,6 +20,7 @@ describe('CustomExpandableComponent', () => {
   });
 
   it('should create', () => {
+    console.log("component.expandableItems", component.expandableItems)
     expect(component).toBeTruthy();
   });
 });

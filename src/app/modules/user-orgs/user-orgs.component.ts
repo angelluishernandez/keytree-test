@@ -19,9 +19,9 @@ export class UserOrgsComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.activatedRoute.snapshot.data.payload);
-    this.userData = this.activatedRoute.snapshot.data.payload.userData;
-    this.userOrgs = this.activatedRoute.snapshot.data.payload.userOrgs;
+
+    this.userData = this.activatedRoute?.snapshot?.data?.payload?.userData;
+    this.userOrgs = this.activatedRoute?.snapshot?.data?.payload?.userOrgs;
 
     this.formatOrgsToConfig(this.userOrgs);
     this.formatUserDataToConfig();
@@ -34,7 +34,7 @@ export class UserOrgsComponent implements OnInit {
    */
 
   formatOrgsToConfig(orgs: Array<UserOrganition>): void {
-    orgs.map((org) => {
+    orgs?.map((org) => {
       const newOrgConfig: ExpandableItems = {
         name: org.login,
         description: org.description,
@@ -62,7 +62,7 @@ export class UserOrgsComponent implements OnInit {
         description: this.userData?.bio,
         urlLink: this.userData?.html_url,
         image: this.userData?.avatar_url,
-        hireable: this.userData.hireable,
+        hireable: this.userData?.hireable,
         links: [
           {
             label: 'Blog',

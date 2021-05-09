@@ -17,7 +17,7 @@ export class UserReposComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.userRepos = this.activatedRoute.snapshot.data.userRepos;
+    this.userRepos = this.activatedRoute?.snapshot?.data?.userRepos;
     this.formatUserReposToConfig(this.userRepos);
   }
 
@@ -28,7 +28,7 @@ export class UserReposComponent implements OnInit {
    */
 
   formatUserReposToConfig(repos: Array<UserRepo>): void {
-    repos.map((repo) => {
+    repos?.map((repo) => {
       const newRepoConfig: ExpandableItems = {
         name: repo.name,
         description: repo.description,

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { UserReposComponent } from './user-repos.component';
 
@@ -8,9 +9,22 @@ describe('UserReposComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserReposComponent ]
-    })
-    .compileComponents();
+      declarations: [UserReposComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              param: {
+                data: {
+                  userRepos: [],
+                },
+              },
+            },
+          },
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

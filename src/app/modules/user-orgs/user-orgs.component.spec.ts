@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { UserOrgsComponent } from './user-orgs.component';
 
@@ -8,9 +9,25 @@ describe('UserOrgsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserOrgsComponent ]
-    })
-    .compileComponents();
+      declarations: [UserOrgsComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              param: {
+                data: {
+                  payload: {
+                    userData: {},
+                    userOrgs: [],
+                  },
+                },
+              },
+            },
+          },
+        },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

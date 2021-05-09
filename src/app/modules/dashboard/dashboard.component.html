@@ -11,10 +11,16 @@
     </mat-card-content>
 
     <mat-card-actions class="search-box-actions">
-      <button mat-raised-button color="primary" (click)="handleSubmit('user')">
+      <button
+        class="repos-button"
+        mat-raised-button
+        color="primary"
+        (click)="handleSubmit('user')"
+      >
         Repos
       </button>
       <button
+        class="orgs-button"
         mat-raised-button
         color="primary"
         (click)="handleSubmit('organizations')"
@@ -24,7 +30,6 @@
     </mat-card-actions>
   </mat-card>
 </div>
-
 
 <div class="dashboard-router">
   <div class="spinner-container" *ngIf="this.isLoading; else isNotLoading">

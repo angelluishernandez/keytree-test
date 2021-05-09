@@ -18,8 +18,7 @@ export class CustomExpandableComponent
   }
 
   ngOnInit(): void {
-    console.log(this.configuration)
-    this.expandableItems = this.configuration.expandableItems;
-    this.expandableDescription = this.configuration.expandableDescription;
+    this.expandableItems = this.configuration?.expandableItems;
+    this.expandableDescription = this.configuration?.expandableDescription;
   }
 }

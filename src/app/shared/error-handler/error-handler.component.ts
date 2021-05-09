@@ -27,7 +27,7 @@ export class ErrorHandlerComponent implements OnInit, OnDestroy {
 
   /**
    *
-   * @param error
+   *
    */
   openDialog(error: { status: number; message: string }): void {
     const dialogRef = this.dialog.open(ErrorContentComponent, {

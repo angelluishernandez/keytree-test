@@ -2,12 +2,12 @@
   <!-- If the configuration data belongs to a user display its data -->
   <div class="info">
     <img
-      *ngIf="this.configuration.image"
-      src="{{ this.configuration.image }}"
+      *ngIf="this.configuration?.image"
+      src="{{ this.configuration?.image }}"
       alt="avatar"
       class="avatar"
     />
-    <div class="text-info" *ngIf="this.configuration.isRepos; else goToRepos">
+    <div class="text-info" *ngIf="this.configuration?.isRepos; else goToRepos">
       <div class="user-repos-link">
         <a
           mat-raised-button
@@ -20,10 +20,10 @@
     <ng-template #goToRepos>
       <div class="user-repos-link">
         <p>
-          <strong>{{ this.configuration.name }}</strong>
+          <strong>{{ this.configuration?.name }}</strong>
         </p>
-        <ng-template *ngIf="this.configuration.description">
-          <p><strong></strong>{{ this.configuration.description }}</p>
+        <ng-template *ngIf="this.configuration?.description">
+          <p><strong></strong>{{ this.configuration?.description }}</p>
         </ng-template>
         <button
           mat-raised-button
@@ -37,7 +37,7 @@
   </div>
 
   <div class="expandable-content-links">
-    <ng-container *ngFor="let link of this.configuration.links">
+    <ng-container *ngFor="let link of this.configuration?.links">
       <a
         mat-raised-button
         color="primary"
