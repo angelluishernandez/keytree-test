@@ -15,7 +15,7 @@ I haven't finished the tests but I've manage to cover about 65% of the code.
 
 # What tools have I used? 
 
-I have used the 11.2.11 version of Angular as I already mentioned, Angular Material for styling, Prettier and TSLint extensions for formatting and linting respectively, JSDocs for comments, and Netlify to deploy. 
+I have used the 11.2.11 version of Angular as I already mentioned, Angular Material for styling, Prettier and TSLint extensions for formatting and linting respectively, JSDocs for comments, Github(obviously) and Gitlens for version control and Netlify to deploy. 
 
 # How does it work? 
 
@@ -25,5 +25,5 @@ If you provide an invalid user it will throw an error which message will be show
 # What about the code? 
 
 I have used resolvers to make Api calls, since it made sense to me to make Http calls when redirecting to a certain page. 
-I have also created a store to avoid unnecessary calls to the Api and allow for faster navigation
+I have also created a store to avoid unnecessary calls to the Api and allow for faster navigation.
 Loading when redirecting is handled by with router events. 
