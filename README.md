@@ -23,6 +23,7 @@ I have used the 11.2.11 version of Angular as I already mentioned, Angular Mater
 You just have to enter a valid Github username in the input and it will show its repos. 
 If you provide an invalid user it will throw an error which message will be shown in a Material dialog. 
 
+
 # What about the code? 
 
 I have used resolvers to make Api calls, since it made sense to me to make Http calls when redirecting to a certain page. 
