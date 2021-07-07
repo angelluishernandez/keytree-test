@@ -29,6 +29,3 @@ I have used resolvers to make Api calls, since it made sense to me to make Http 
 I have also created a store to avoid unnecessary calls to the Api and allow for faster navigation
 Loading when redirecting is handled by with router events. 
 
-
-
-
